@@ -222,12 +222,15 @@ var ColorChange = function () {
     };
     var handleSubmit = function (event) {
         event.preventDefault();
-        var colorstr = resultnya;
-        localStorage.setItem(count.toString(), colorstr);
-        var getnow = localStorage.getItem(count.toString()).toString();
-        var newcount = count;
-        newcount += 1;
-        setCount(newcount);
+        var reg = /^#{1}[A-Z0-9]{6}$/;
+        if (resultnya.match(reg)) {
+            var colorstr = resultnya;
+            localStorage.setItem(count.toString(), colorstr);
+            var getnow = localStorage.getItem(count.toString()).toString();
+            var newcount = count;
+            newcount += 1;
+            setCount(newcount);
+        }
     };
     return (_jsxs(_Fragment, { children: [_jsxs("form", __assign({ onSubmit: function (e) { return handleSubmit(e); } }, { children: [_jsx("label", { children: "Add new color:" }), "  ", _jsx("input", { type: "text", name: "inputcolor", size: 40, onChange: function (e) { return handleChangecol(e); } }), _jsx("input", { type: "submit", value: "Add" })] })), _jsxs("form", { children: [_jsxs("label", { children: [_jsx("input", { type: "checkbox", name: "satu", onChange: function (e) { return becomecolor(e); } }), " Red ", '>', " 50%   "] }), _jsxs("label", { children: [_jsx("input", { type: "checkbox", name: "dua", onChange: function (e) { return becomecolor(e); } }), "  Green ", '>', " 50%    "] }), _jsxs("label", { children: [_jsx("input", { type: "checkbox", name: "tiga", onChange: function (e) { return becomecolor(e); } }), "Blue ", '>', " 50%   "] }), _jsxs("label", { children: [_jsx("input", { type: "checkbox", name: "empat", onChange: function (e) { return becomecolor(e); } }), "Saturation ", '>', " 50%     "] })] }), _jsxs("div", { children: [tai, lala] })] }));
 };

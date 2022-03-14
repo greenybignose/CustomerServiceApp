@@ -329,7 +329,12 @@ const handleChangecol = (event: React.ChangeEvent<HTMLInputElement>) => {
 
 const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
            event.preventDefault();   
-    const colorstr =  resultnya;
+
+  const reg = /^#{1}[A-Z0-9]{6}$/
+
+     if(resultnya.match(reg)){
+       const colorstr =  resultnya;   
+
       localStorage.setItem(count.toString(), colorstr );
     const getnow = localStorage.getItem(count.toString()).toString();
 
@@ -338,7 +343,7 @@ let newcount = count;
 newcount += 1;
 setCount(newcount);
 }
-
+}
 
 
    return(

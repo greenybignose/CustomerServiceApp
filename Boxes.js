@@ -13,7 +13,6 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-
 var Boxes = function (_a) {
     var ngumpetatas = _a.ngumpetatas, colornowatas = _a.colornowatas, onclicked = _a.onclicked;
     return (_jsxs(Div, __assign({ ngumpet: ngumpetatas }, { children: [_jsx(Button, __assign({ colornow: colornowatas }, { children: "    " })), _jsx("div", { children: colornowatas }), _jsx("div", { children: _jsx("input", { type: "checkbox", onClick: onclicked }) })] })));
