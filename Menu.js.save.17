@@ -1,0 +1,43 @@
+import { useState } from 'react';
+import styled from 'styled-components';
+import  './Button.css';
+import ChatComponents from './ChatComponents.js';
+import { ToggleLeft } from 'react-feather';
+import Username from './Chatpageone';
+
+const Menu = () => {
+
+const [valueobj, setValueobj] = useState({satu:'', dua:'', tiga:'', empat:''});
+const [open, setOpen] = useState();  
+
+
+function handleClick(){
+ let newopen = open;
+ newopen = "open";
+  setOpen(newopen);
+}
+
+
+
+       return(
+<>   
+       <div>
+             <button  className="button"   
+ > About Us </button>
+                  <button   className="button"  
+   /*   onClick={(e) => {handleClick("dua")}  }*/  > Chat </button>
+                <ToggleLeft  color="blue" 
+ size={48}  onClick={() => handleclickn(open)} />   
+          { open && <Username /> }
+           </div>
+           <div>
+          
+</div>
+</>
+);
+
+
+
+}
+export default Menu;
+          

@@ -1,0 +1,92 @@
+import React, {useEffect, useState} from 'react';
+import { readFileSync } from "fs";
+
+const URL = 'wss://159.203.39.197:3000';
+
+const QueueComp = () => {
+
+         const [onetime , setOnetime] = useState('yes');
+         const [fromuser, setFromuser ] = useState("fucker");
+      const [adminchat, setAdminchat ] = useState('');
+      
+
+  const [ws, setWs] = useState(new WebSocket(URL));
+
+
+//const mblok = [];
+        
+
+
+              if(onetime  === "yes"){
+                   ws.onopen = () => {
+              console.log('WebSocket Connected');
+              
+            }
+               let newonetime = onetime;
+               newonetime = "no";
+               setOnetime(newonetime);
+}
+
+          
+/*            ws.onmessage = (e) => {
+              const message = JSON.parse(e.data);
+               console.log(e)
+            }  
+
+*/
+           window.addEventListener('beforeunload', function(k){
+                  k.preventDefault();
+              ws.onclose = () => {
+                console.log('WebSocket Disconnected');
+              }
+            });
+
+
+let chatf = '';
+function handleChange(event){
+   if (event.target.name === "tempatchat"){
+
+        chatf = event.target.value;
+         
+}
+}
+
+
+function handleSubmit(event){
+            let  chatbaru = adminchat;
+        chatbaru = chatf;
+          if(chatbaru !== ''){
+                const message = { user: "admin", message: chatbaru};
+                ws.send(JSON.stringify(message));
+             }
+
+     setAdminchat(chatbaru);
+      
+}:q!
+
+
+
+return(
+
+<>
+<div>
+  <textarea type="textarea" rows="10" cols="50">
+     { fromuser }
+    </textarea>
+</div>
+<div>
+  <form action="" onSubmit={(e) => handleSubmit(e)}>
+  <textarea type="textarea" rows="10" cols="50" name="tempatchat" onChange={(e) => handleChange(e)}>
+    </textarea>
+   <input type="submit" value="send"/>
+   </form> 
+</div> 
+</>
+   );
+}
+
+
+export default QueueComp;
+
+
+

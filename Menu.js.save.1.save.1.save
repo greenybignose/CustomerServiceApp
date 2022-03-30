@@ -1,0 +1,65 @@
+import React from 'react';
+import styled from 'styled-components';
+import { Button } from './Button.js';
+import ChatComponents from './ChatComponents.js';
+import { ToggleLeft } from 'react-feather';
+
+const Menu = () => {
+    [valueobj, setValueobj] = useState({type: ["", "enter", "clicked"], curid: "1" });
+  }
+  
+return(
+const currentfill = () => {
+  if(valueobj.curid === "1" ){
+   return  <></>;
+};
+if(valueobj.curid === "2"){
+return <ChatComponents />;
+};
+
+};
+
+const supportwindow = () => {
+window.open("","Ratting","width=550,height=170,left=150,top=200,toolbar=0,status=0,");
+
+}
+
+       return(
+<>   
+       <div>
+             <Button  mode={''} onMouseOver={(e) => {handleOver(1})} >About Us</Button>
+                  <Button  mode={''} onMouseOver={handleOver(2)}  
+      onClick={(e) => {handleClick(2)}}  />Chat</Button>
+                <ToggleLeft color="blue" size={48}  onClick={supportwindow} />   
+           </div>
+           <div>
+          {currentfill}
+          
+</div>
+</>
+);
+
+}
+
+
+
+handleOver(event: React.MouseEvent<HTMLInputElement>, id) {
+if(id === 1){
+event.target.mode = "enter";
+}
+if(id === 2){
+
+
+}
+}
+/*
+handleClick(id) {
+if(id === 2){
+setValueobj({typetwo: "clicked", curid: "2"});
+}
+}
+*/
+)
+}
+export default Menu;
+          

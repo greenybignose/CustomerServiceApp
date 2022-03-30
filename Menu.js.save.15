@@ -1,0 +1,46 @@
+import { useState } from 'react';
+import styled from 'styled-components';
+import  './Button.css';
+import ChatComponents from './ChatComponents.js';
+import { ToggleLeft } from 'react-feather';
+
+const Menu = () => {
+
+const [valueobj, setValueobj] = useState({satu:'', dua:'', tiga:'', empat:''});
+  
+
+
+
+
+
+function handleClicktoggle() {
+
+
+const supportwindow = () => {
+window.open("","Ratting","width=550,height=170,left=150,top=200,toolbar=0,status=0,");
+
+}
+}
+
+
+       return(
+<>   
+       <div>
+             <button  className="button"   
+ > About Us </button>
+                  <button   className="button"  
+   /*   onClick={(e) => {handleClick("dua")}  }*/  > Chat </button>
+                <ToggleLeft  color="blue" 
+ size={48}  onClick={(e) => {handleClicktoggle()}} />   
+           </div>
+           <div>
+          
+</div>
+</>
+);
+
+
+
+}
+export default Menu;
+          

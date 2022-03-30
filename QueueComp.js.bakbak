@@ -1,0 +1,100 @@
+import React, { Component } from 'react';
+import { readFileSync } from "fs";
+
+
+
+class QueueComp extends React.Component {
+     
+constructor(props){
+super(props);
+const URL = 'wss://159.203.39.197:3000';
+
+
+       this.state = { onetime: 'yes' , fromuser: " ", adminchat: '', ws: new WebSocket(URL)};
+       this.myRef = React.createRef();      
+       this.handleSubmit = this.handleSubmit.bind(this);
+
+}
+        
+
+render(){
+              if(this.state.onetime  === "yes"){
+                   this.state.ws.onopen = () => {
+                   const message = { user: "admin", message: ""};
+               this.state.ws.send(JSON.stringify(message));
+              
+            }
+               let newonetime = "no";
+               this.setState({onetime: newonetime});
+}
+
+        
+            this.state.ws.onmessage = (e) => {
+              console.log(JSON.parse(e.data));  
+              const message = JSON.parse(e.data);
+              let emailaddress = message.email;
+                 
+              if(message.message){
+              let newfromuser = message.message;
+               this.setState({fromuser: newfromuser});
+                    console.log(newfromuser);
+             this.forceUpdate();
+         }
+            }  
+
+
+
+           window.addEventListener('beforeunload', function(k){
+                  k.preventDefault();
+                   const message = { user: "admindown", message: ""};
+                this.state.ws.send(JSON.stringify(message));
+              this.state.ws.onclose = () => {
+                console.log('WebSocket Disconnected');
+              }
+            });
+
+
+
+
+
+
+return(
+
+<>
+<div>
+  <textarea type="textarea" rows="10" cols="50">
+     {this.state.fromuser}
+    </textarea>
+</div>
+<div>
+  <form action="" onSubmit={(e) => this.handleSubmit(e)}>
+  <textarea type="textarea" rows="10" cols="50"  
+   ref={this.myRef} >
+    </textarea>
+   <input type="submit" value="send"/>
+   </form> 
+</div> 
+</>
+   );
+}
+
+handleSubmit(event){
+        event.preventDefault();
+
+            let chatbaru = this.myRef.current.value;
+          if(chatbaru !== ''){
+                const message = { user: "admin", message: chatbaru};
+                this.state.ws.send(JSON.stringify(message));
+             }
+this.myRef.current.value = '';
+
+         this.setState({adminchat: chatbaru});
+}
+
+}
+
+
+export default QueueComp;
+
+
+

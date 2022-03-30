@@ -1,0 +1,74 @@
+import { useState } from 'react';
+import styled from 'styled-components';
+import  './Button.css';
+import ChatComponents from './ChatComponents.js';
+import { ToggleLeft } from 'react-feather';
+
+const Menu = () => {
+
+const [valueobj, setValueobj] = useState({satu:'', dua:'', tiga:'', empat:''});
+  
+
+
+if(event){
+const supportwindow = () => {
+window.open("","Ratting","width=550,height=170,left=150,top=200,toolbar=0,status=0,");
+
+let valnewobj = valueobj;
+valnewobj.tiga = '';
+setValueobj(valnewobj);
+
+}
+}
+
+
+/*
+
+function handleOver(id) {
+
+let newvalobj = valueobj;
+
+if(id === "satu"){  
+newvalobj.satu = "enter";
+}
+else if(id === "dua"){
+newvalobj.dua = "enter";
+}
+
+   setValueobj(newvalobj);
+
+}
+*/
+
+function handleClick(id) {
+
+let newvalobj = valueobj;
+
+if(id  === "tiga"){
+newvalobj.tiga = "clicked"
+}
+setValueobj(newvalobj);
+}
+
+
+       return(
+<>   
+       <div>
+             <button  class=button   
+ > About Us </button>
+                  <button   class=button  
+      onClick={(e) => {handleClick("dua")}}  > Chat </button>
+                <ToggleLeft  color="blue" 
+name="tiga" size={48}  onClick={(e) => {handleClicktoggle()}} />   
+           </div>
+           <div>
+          
+</div>
+</>
+);
+
+
+
+}
+export default Menu;
+          

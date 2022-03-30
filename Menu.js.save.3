@@ -1,0 +1,66 @@
+import React from 'react';
+import styled from 'styled-components';
+import { Button } from './Button.js';
+import ChatComponents from './ChatComponents.js';
+import { ToggleLeft } from 'react-feather';
+
+const Menu = () => {
+    [valueobj, setValueobj] = useState({satu:'', dua:'', tiga:'', empat:''});
+  }
+  
+return(
+
+const supportwindow = () => {
+window.open("","Ratting","width=550,height=170,left=150,top=200,toolbar=0,status=0,");
+
+}
+
+       return(
+<>   
+       <div>
+             <Button  mode={valueobj.satu}  name="satu" 
+onMouseOver={(e) => {handleOver()}}  >About Us</Button>
+                  <Button  mode={valueobj.dua} name="dua" onMouseOver={(e) => {handleOver()}}  
+      onClick={(e) => {handleClick()}}  />Chat</Button>
+                <ToggleLeft mode={valueobj.tiga} color="blue" 
+name="tiga" size={48}  onClick={(e) => {handleclick()}} />   
+           </div>
+           <div>
+          {currentfill}
+          
+</div>
+</>
+);
+
+
+
+
+
+handleOver(event: React.MouseEvent<HTMLInputElement>) {
+let newvalobj = valueobj;
+
+if(event.target.name === "satu"){  
+newvalobj.satu = "enter";
+}
+else if(event.target.name === "dua"){
+newvalobj.dua = "enter";
+}
+
+   setValueobj(newvalobj);
+
+}
+
+handleClick(event: React.MouseEvent<HTMLInputElement>) {
+let newvalobj = valueobj;
+
+if(event.target.name  === "tiga"){
+newvalobj.tiga = "clicked"
+}
+setValueobj(newvalobj);
+}
+
+
+
+}
+export default Menu;
+          

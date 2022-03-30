@@ -1,0 +1,95 @@
+import {useEffect, useState} from 'react';
+
+
+
+const Betweenuname = () => {
+
+const [username, setUsername] = useState();
+const [email, setEmail] = useState();
+const [textnya, setTextnya] = useState({text: "Please kindly leave your email address below in case" +  
+ "our communication break or our customer service not available at this moment", code: 1});
+
+
+
+
+
+let emailbaru = '';
+let userbaru = '';
+
+const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+       if(event.target.name === "myinput"){
+         if(textnya.code === 1){            
+              emailbaru = event.target.value;
+}
+      else if(textnya.code === 2){
+            userbaru = event.target.value;
+}
+}
+}
+
+const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+       if(textnya.code === 1){              
+ let newemail = email;
+                        
+   newemail = emailbaru;
+    
+                 setEmail(newemail);   
+let newtext = "Plese kindly input your name:";
+let textbaru = textnya;
+     textbaru.text = newtext;
+      textbaru.code = 2;
+   setTextnya(textbaru);
+
+
+}
+     else if(textnya.code === 2){
+        let newusername = username;
+           newusername = userbaru;
+      setUsername(newusername);
+
+
+    let textbaru = textnya;
+      textbaru.text = '';
+      textbaru.code = 3;
+     setTextnya(textbaru);
+
+     let datauser = {"emailaddress": email, "currentuser": newusername};
+
+        
+         fetch("https://159.203.39.197:3000", {
+               method: "POST",
+               headers: { 'Content-Type': 'application/json' },
+               body: JSON.stringify(datauser)
+}).then((response) =>  response.json()
+       ).then(function(data){
+          console.log(data)
+        if(data === "not available"){
+}
+else if(data   
+ });
+
+}
+}
+
+
+return(
+<>
+<form onSubmit={(e) => handleSubmit(e)}>
+<p>{textnya.text}</p>
+<input type="text" name="myinput" size={20} onChange={(e) => handleChange(e)} /><input type="submit" value=" > " />
+</form>
+</>
+)
+
+
+
+  
+
+
+
+
+
+}
+
+export default Betweenuname;

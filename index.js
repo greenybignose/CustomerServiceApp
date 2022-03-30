@@ -1,5 +1,17 @@
-import { jsx as _jsx } from "react/jsx-runtime";
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import './index.css';
-import ColorChange from './ColorChange';
-ReactDOM.render(_jsx(ColorChange, {}), document.getElementById('root'));
+import Top from './Top';
+
+ReactDOM.render(
+ <BrowserRouter>
+ <Top/> 
+</BrowserRouter>,  
+
+  document.getElementById('root')
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
