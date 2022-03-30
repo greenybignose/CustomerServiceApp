@@ -1,0 +1,41 @@
+const express = require('express');
+const app = express();
+const fs = require("fs");
+const bodyParser = require("body-parser");
+
+app.use(bodyParser.urlencoded({extended: false }));
+app.use(bodyParser.json());
+
+app.get("/", function(req, res) {
+    res.sendFile(__dirname + "/index.html");
+});
+
+app.post("/msg", function(req, res) {
+     console.log(req.body);
+     res.redirect("/");
+});
+
+const options = {
+    key: fs.readFileSync("server.key"),
+    cert: fs.readFileSync("server.cert"),
+};
+
+https.createServer(options, app).listen(5000, function(req, res) {
+ 
+
+// Creating a server
+
+https.createServer(function (req, res) {
+
+// Write response as Html(text)
+
+res.writeHead(200, {'Content-Type': 'text/plain'});
+
+// Writing static text
+
+res.write('Hello World');
+
+res.end();
+// Server listening on port number 4200
+
+}).listen(5000);

@@ -1,0 +1,103 @@
+const MongoClient = require('mongodb').MongoClient;
+
+
+
+const url = "mongodb://localhost:27017/";
+
+const client = new MongoClient(uri);
+
+function dbid(emailadd, username){
+     client.connect();
+    const  database = client.db("dbid");
+    const movies = database.collection("customers");
+     const query = login: function(user, pass, callback) {
+    db.open(function (err, db) {
+        if(!err) {
+            db.collection("users", function(err, collection) {
+                collection.findOne(
+                    {
+                        "username": user,
+                        "password": pass
+                    },
+                    function(err, item) {
+                        if(!err) {
+                            callback(null,item);
+                        } else {
+                            callback("error");
+                        }
+                    }
+                );
+            });
+        } else {
+            callback("error",null);
+        }
+    });
+}
+
+
+user.login("test", "test", function(err,msg) {
+    if( err ) {
+      //error occured above;
+    } else {
+      //success
+      console.log(msg);
+    }
+});
+login: function(user, pass, callback) {
+    db.open(function (err, db) {
+        if(!err) {
+            db.collection("users", function(err, collection) {
+                collection.findOne(
+                    {
+                        "username": user,
+                        "password": pass
+                    },
+                    function(err, item) {
+                        if(!err) {
+                            callback(null,item);
+                        } else {
+                            callback("error");
+                        }
+                    }
+                );
+            });
+        } else {
+            callback("error",null);
+        }
+    });
+}
+
+
+user.login("test", "test", function(err,msg) {
+    if( err ) {
+      //error occured above;
+    } else {
+      //success
+      console.log(msg);
+    }
+});
+
+
+
+
+MongoClient.connect(url, function(err, db) {
+    if(err) throw err;
+    const dbo = db.db("dbid");
+    const query = { emailaddress: emailadd, namauser: username };
+    dbo.collection("customers").find(query).toArray(function(err, result) {
+        if(err) {
+      db.close();
+         fine("notfind");
+            }
+          else if(result){    
+      db.close();
+         fine("find");
+}
+});
+});
+
+return fined.fine;
+};
+
+module.exports = {dbid};
+

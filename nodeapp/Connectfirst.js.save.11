@@ -1,0 +1,243 @@
+const https = require("https");
+const express = require('express');
+const app = express();
+const fs = require("fs");
+const bodyParser = require("body-parser");
+const dbidcheck = require("./Dbidcheck");
+const dbidinsert = require("./Insertdbid");
+const unamecheckconn = require("./UnameChecking");
+const wss = require("ws");
+const EventEmitter = require('events');
+const myEmitter = new EventEmitter();
+const myEmittertwo = new EventEmitter();
+const WebSocketServer = wss.Server;
+
+const avail = [];
+const arrquenol = [];
+const arrquen = [];
+const ip = [];
+const arrset = [];
+const arrremov = [];
+
+   myEmitter.on('event', function firstListener(arg1){
+           if(arg1 === "available" && avail.length == 0){
+              avail.push(arg1);
+    console.log(avail[0]);
+       
+}
+});
+
+myEmittertwo.on('event', function firstListen(arg1){
+            avail.length = 0;
+          console.log(avail[0]);
+         
+});
+
+
+app.use('/', express.static('../my-app/build'));
+app.use('/memberarea', express.static('../my-app/build'));
+app.use(bodyParser.json());
+
+app.post('/memberarea', function(req, res) {
+if(req.body.uname !== undefined && req.body.pass !== undefined){
+ unamecheckconn.unamecheck(req.body.uname, req.body.pass).then(function(checkuser){
+
+     if(checkuser === "find"){
+     res.send({"answer": "available"});
+
+    console.log("find");
+
+
+
+
+   }
+    else if(checkuser === "notfind"){
+      console.log("notfind");
+}   
+     });
+}
+});
+
+
+app.post('/betweenuname', function(req, res) {
+if(req.body.emailaddress !== undefined && req.body.currentuser !== undefined){
+      dbidcheck.dbid(req.body.emailaddress, req.body.currentuser).then(function(checkdbid){
+          
+        if(checkdbid === "notfind"){
+        dbidinsert.insertdbid(req.body.emailaddress, req.body.currentuser);
+      console.log("notfind");
+        if(avail[0] === "available"){
+             console.log(avail[0]);
+            res.send({"answer": "available"});
+}
+         
+   }
+     else if(checkdbid === "find"){
+     res.send({"answer": "available"});
+    console.log("find");
+  
+
+   }   
+     });
+}
+});
+
+
+const options = {
+    key: fs.readFileSync("server.key"),
+    cert: fs.readFileSync("server.cert"),
+};
+
+var server = https.createServer(options, app);
+
+
+
+
+
+
+
+server.listen(3000, 'testprog', function(req, res) {
+              console.log("server started at port 5000");
+}); 
+
+
+let wssx = new WebSocketServer({
+        server: server
+});
+
+wssx.on("connection", function connection(ws){
+     
+
+     ws.on("message", function incoming(message) {
+
+ let newmessage = message.toString();
+       let barumessage = JSON.parse(newmessage);
+
+        let reg = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}'); 
+console.log(barumessage);              
+ console.log(barumessage.email);   
+              
+     if(barumessage.user === "admin" && barumessage.message === '' && avail.length == 0) {
+             myEmitter.emit('event', "available");
+                }
+        else if(barumessage.user === "admin" && barumessage.message !== ''){
+             console.log("masuk elseif pertama");
+wssx.clients.forEach(function(client) {
+      if (client !== ws && client.readyState === wss.OPEN) {
+        client.send(newmessage);
+}});
+        }
+      else if(barumessage.user === "userdown" && barumessage.email !== ''){
+                    arrremov.length = 0;
+              if(barumessage.email === arrquenol[0]){
+                    arrquenol.length = 0;
+                   let firstemail = arquen[0];
+                   arrquenol.push(firstemail.email);
+                 arrquen.forEach(function(each) {
+                    if(each.email === firstemail.email){
+                           wssx.clients.forEach(function(client) {
+      if (client !== ws && client.readyState === wss.OPEN) {
+        client.send(each);
+}});
+                    arrremov.push(each);
+}});
+               for(let z = 0; z < arrremov.length; z++){
+                  let arrem = arrremov[z];
+                  let arrquenem = arrquen[z];
+                 
+                   if(arrem.email === arrquenem.email){
+                            arrquen.shift();
+                   console.log(arrquen + "aftershift");
+} 
+
+}
+}
+           else {
+             for(let k = 0; k < arrquen.length; k++){
+                 let tempk = arrquen[k];
+                     if(tempk.email === barumessage.email){
+                             arrremov.push(arrquen[k]);
+}
+                    }
+  for(let v = 0; v < arrremov.length; v++){
+                  let arrem = arrremov[v];
+                  let arrquenem = arrquen[v];
+                 
+                   if(arrem.email === arrquenem.email){
+//todo masuk ke database
+                            arrquen.splice(v, 1);
+} 
+
+}             
+
+}                    
+                 }
+              
+ 
+        
+       else if(barumessage.user === "admindown") {
+              console.log("admindown");
+             myEmittertwo.emit('event', "notavailable");
+           }
+         else if(reg.test(barumessage.email)){
+           if(arrquenol.length != 0){
+             console.log("tailoe");
+           if(arrquenol.includes(barumessage.email)){
+                        console.log(arrquenol + "aftercheck");
+            
+wssx.clients.forEach(function(client) {
+      if (client !== ws && client.readyState === wss.OPEN) {
+        client.send(newmessage);
+}});
+                             
+                       }
+                else {  
+            console.log("barumasuk");
+                if(arrquen.length != 0){
+                  for(let u=0; u <= arrquen.length; u++){
+                       let emailchtmp = arrquen[u];
+                       
+                    if(emailchtmp.email === barumessage.email){
+                  arrquen.splice(u+1, 0, barumessage); 
+                       arrset.push(1);          
+                          console.log(arrquen);
+                   break;   
+}
+                        }
+                if(arrset.length == 0){
+                        arrquen.push(barumessage);
+                      }
+                  else {
+                     arrset.length = 0;             
+}
+
+}
+
+                    else {
+                      arrquen.push(barumessage);
+}  
+                  }
+}
+               else {
+                arrquenol.push(barumessage.email);
+                    console.log(arrquenol);
+wssx.clients.forEach(function(client) {
+      if (client !== ws && client.readyState === wss.OPEN) {
+        client.send(newmessage);
+}});
+                             
+             
+                  }
+    }
+       });
+
+
+});
+
+
+
+
+
+
+
+
