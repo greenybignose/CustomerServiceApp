@@ -2,19 +2,23 @@ import React from 'react';
 import {useMemo, useEffect, useState, useRef} from 'react';
 import EmailandUser from './EmailandUser';
 import UserChat from './UserChat';
+import UserChatna from './UserChatna';
+import './Fab.css';
 
-
-const Betweenuname = () => {
+const Betweenuname = (props) => {
 
 const inputemail = useRef(null);
 const [ onetime, setOnetime] = useState();
 const [username, setUsername] = useState();
 const [email, setEmail] = useState();
+const [uchat, setUchat] = useState("ngumpet");
+const [uchatna, setUchatna] = useState("ngumpet");
+const [antrian, setAntrian] = useState();
 const [textnya, setTextnya] = useState({text: "Please kindly leave your email address below in case" +  
  "our communication break or our customer service not available at this moment", code: 1});
-const [componentshow, setComponentshow] = useState(<EmailandUser ref={inputemail} textdown={textnya.text}
-onSubmit = {(e) => handleSubmit(e)} /> );
 useMemo(() => fetchdata(), [username]);
+
+
 
 
 const handleSubmit = (event) => {
@@ -35,10 +39,6 @@ let textbaru = textnya;
       textbaru.code = 2;
    setTextnya(textbaru);
 
-let rerender = componentshow;
-     rerender = <EmailandUser ref={inputemail} textdown={textnya.text}
-onSubmit = {(e) => handleSubmit(e)} />;
-     setComponentshow(rerender);
 
 return;
 
@@ -66,26 +66,54 @@ function fetchdata() {
        ).then(function(data){
           console.log(data)
         if(data.answer === "available"){
+props.turnoff("ngumpet");
 
-let rerender = componentshow;
-     rerender = <UserChat email={email} user={username} />;
-     setComponentshow(rerender);
+let rerender = uchat;
+     rerender = "tampil" ;
+     setUchat(rerender);
              
 }
-       else if(data === "queue0"){
-//todo
+       else if(data.answer === "notavailable"){
+   props.turnoff("ngumpet");
+   
+let rerender = uchatna;
+  rerender = "tampil";
+  setUchatna(rerender);
 }
-else {
-//todo
+     else if(data.answer === "queue1"){
+     props.turnoff("ngumpet");
+     let newqueue = antrian;
+         newqueue = "queue1";
+     setAntrian(newqueue);
 }
 
+else {
+     props.turnoff("ngumpet");
+     let newqueue = antrian;
+         newqueue = data.answer;
+     setAntrian(newqueue);
+
+}
 });
 }
 
+useEffect(() => {
+    if(antrian){
+console.log(antrian);
+      let rerender = uchat;
+     rerender = "tampil" ;
+     setUchat(rerender);
+}
+}, [antrian]);
 
 return(
 <>
-{ componentshow }
+<EmailandUser vise={props.vis} ref={inputemail}
+ textdown={textnya.text} onSubmit = {(e) => handleSubmit(e)} />
+
+{ uchat === "tampil" &&
+ (<UserChat className={uchat} email={email} user={username} nantri={antrian} />)  }
+<UserChatna className={uchatna} email={email} user={username} />
 
 </>
 )

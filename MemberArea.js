@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import './Fab.css';
 
 const MemberArea = () => {
 
@@ -40,11 +41,19 @@ else {
 
 return(
 <>
-<div>
+<div className="formnya">
 <form method="" onSubmit={(e) => handleSubmit(e)} >
-<label>Username:</label><input type="text" size={48} name="username" onChange={(e) => handleChange(e)}/>
-<label>Password:</label><input type="password" size={48} name="password" onChange={(e) => handleChange(e)}/>
-<input type="submit" formaction="/memberarea" value="LogIn"/>
+<div className="usernya">
+<label className="label">Username:</label>
+<input className="label" type="text" size={20} name="username" onChange={(e) => handleChange(e)}/>
+</div>
+<div className="passwordnya">
+<label className="label">Password:</label>
+<input className="label" type="password" size={20} name="password" onChange={(e) => handleChange(e)}/>
+</div>
+<div className="submit">
+<input className="label" type="submit" formaction="/memberarea" value="LogIn"/>
+</div>
 </form>
 </div>
 </>

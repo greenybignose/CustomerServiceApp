@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<svg viewBox="0 0 100 120"   xmlns="http://www.w3.org/2000/svg" >
+
+ <defs>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:rgb(0,0,255);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgb(0,255,255);stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <defs>
+    <linearGradient id="grad3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:rgb(255,0,255);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgb(0,255,255);stop-opacity:1" />
+    </linearGradient>
+  </defs>
+<defs>
+    <filter id="f2" x="0" y="0" width="200%" height="200%">
+      <feOffset result="offOut" in="SourceAlpha" dx="20" dy="20" />
+      <feGaussianBlur result="blurOut" in="offOut" stdDeviation="10" />
+      <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+    </filter>
+  </defs>
+
+
+  <rect x="70" y="100" rx="40" ry="80" width="800" height="150" filter="url(#f2)" fill="url(#grad2)"
+  style="stroke:black;stroke-width:5;opacity:0.8" />
+    <text x="260" y="220" font-family="fantasy" font-size="150" font-style="Italic" fill="black">Services</text>
+
+ <path d="M 100 100 l 121 0" stroke="green" stroke-width="8"
+  fill="none" />
+
+  <path d="M 100 100 q 110 80 120 0" stroke="blue" stroke-width="5" fill="url(#grad3)" />
+
+
+<rect x="120" y="88" width="20" height="10" style="fill:maroon ;stroke-width:3;stroke:rgb(255,0,0)" />
+
+<rect x="140" y="88" width="20" height="10" style="fill:maroon ;stroke-width:3;stroke:rgb(255,0,0)" />
+<rect x="160" y="88" width="20" height="10" style="fill:maroon ;stroke-width:3;stroke:rgb(255,0,0)" />
+
+<rect x="140" y="78" width="20" height="10" style="fill:maroon ;stroke-width:3;stroke:rgb(255,0,0)" />
+<rect x="160" y="78" width="20" height="10" style="fill:maroon ;stroke-width:3;stroke:rgb(255,0,0)" />
+
+
+
+
+  Sorry, your browser does not support inline SVG.
+</svg>
+
+
+ 

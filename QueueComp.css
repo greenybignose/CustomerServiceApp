@@ -1,0 +1,78 @@
+.tampil {
+  visibility: visible;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  display: block;
+  width: 30%;
+  height: auto;
+  background-color: blue;
+  border-style: solid;
+  boder-color: blue;
+  border-radius: 1.2em;
+  }
+
+.blkareau {
+  display: block;
+  width: 90%;
+  height: auto;
+  block-style: solid;
+  margin-bottom: 10%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.blkareaa {
+  display: block;
+  width: 90%;
+  height: auto;
+  block-style: solid;
+  margin-top: 10%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 2.5%;
+}
+
+.btnareau {
+  display: block;
+  background-color: red;
+  border-style:solid;
+  border-radius: 1em;
+  font-family: serif;
+}
+
+.btnareaa {
+  display: block;
+  background-color: red;
+  border-style:solid;
+  border-radius: 1em;
+  font-family: serif;
+}
+
+.txtareau {
+  resize: none;
+  display: block;
+  font-family: serif; 
+  width: 250px;
+  height: 60px;
+  border-radius: 1em;
+}
+
+.txtareaa {
+  resize: none;
+  display: block;
+  width: 250px;
+  height: 60px;
+  border-radius: 1em;
+  font-family: serif;
+}
+
+.btnsubmit {
+  display: block;
+  border-radius: 1em;
+  margin-top: 5%;
+  font-style: italic;
+  font-family: serif;
+}
+
+

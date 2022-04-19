@@ -1,26 +1,43 @@
 import React, {useRef, useEffect, useState} from 'react';
 import { readFileSync } from "fs";
+import './Fab.css';
+import './UserChat.css';
 
 const URL = 'wss://159.203.39.197:3000';
 
-const QueueComp = (props) => {
+const UserChat = (props) => {
 
-         const [onetime , setOnetime] = useState('yes');
+         const [onetime , setOnetime] = useState();
      const  textchat = useRef(null);      
       const adminchat = useRef(null);  
-    const [fromuser, setFromuser] = useState([]);
-   const [fromadmin, setFromadmin] = useState([]);
   const [ws, setWs] = useState(new WebSocket(URL));
          
-
+useEffect(() => {
+   if(props.nantri){
+                adminchat.current.value = "Please wait, you're on " + props.nantri;
+}
+}, [props.nantri]);
+  
         
+useEffect(() => {
+   if(props.email){
+          let newonetime = onetime;
+            newonetime = "yes";
+         setOnetime(newonetime);
+}       
+}, [props.email]);
 
-
-              if(onetime  === "yes"){
+      if(onetime  === "yes"){
                    ws.onopen = () => {
+     let emailneh = props.email;
+          let chatneh = "nehconndah";                       
+     const message = { email: emailneh, message: chatneh};
+                ws.send(JSON.stringify(message));
+
               console.log('WebSocket Connected');
               
             }
+
                let newonetime = onetime;
                newonetime = "no";
                setOnetime(newonetime);
@@ -30,13 +47,8 @@ const QueueComp = (props) => {
             ws.onmessage = (e) => {
               const message = JSON.parse(e.data);
                if(message.to  === props.email){
-                   if(message.message !== ""){ 
-                     let newfromadmin = fromadmin;
-                    newfromadmin.push(e.data);
-                 setFromadmin(newfromadmin);
                  adminchat.current.value = message.message;
-                      console.log(fromadmin);
-                  }}
+                  }
                else if(message.status === "admindown"){
                     console.log("admindown");
                    //todo shwing up message admindown
@@ -59,45 +71,42 @@ const QueueComp = (props) => {
 
 function handleSubmit(event){
         event.preventDefault();
-
-          if(textchat.current.value !== ''){
-         let chatbaru = fromuser;
-                   let emailnya = props.email;
-                   let tempmess = textchat.current.value;
-                const message = { email: emailnya, message: tempmess};
-                  chatbaru.push(message);
-      setFromuser(chatbaru);
-
+     let emailnya = props.email;
+  let tmpchat = textchat.current.value;
+                const message = { email: emailnya, message: tmpchat};
                 ws.send(JSON.stringify(message));
 
-             }
 textchat.current.value = '';
       
-console.log(fromuser);
 }
 
 
 return(
 
 <>
-<div>
-  <textarea type="textarea" rows="10" cols="50" ref={adminchat}>
+<div className={props.className}>
+
+<div className="blkareaa">
+  <button className="btnareaa">Admin</button>
+  <textarea type="textarea" readOnly className="txtareaa" ref={adminchat}>
     </textarea>
 </div>
-<div>
+<div className="blkareau">
   <form action="" onSubmit={(e) => handleSubmit(e)}>
-  <textarea type="textarea" rows="10" cols="50"  
+  <button className="btnareau">{props.email}</button>
+  <textarea type="textarea" className="txtareau"   
    ref={textchat} >
     </textarea>
-   <input type="submit" value="send"/>
+   <input type="submit" className="btnsubmit" value="send"/>
    </form> 
+</div>
 </div> 
 </>
    );
 }
 
 
-export default QueueComp;
+export default UserChat;
 
 
 

@@ -9,7 +9,6 @@ const QueueComp = () => {
          const [onetime , setOnetime] = useState('yes');
          const [fromuser, setFromuser ] = useState([]);
       const [adminchat, setAdminchat ] = useState([]);
-      const [email, setEmail] = useState();
      const  textchat = useRef(null);      
       const userchat = useRef(null);
 
@@ -30,14 +29,9 @@ const toggleUser = [];
                setOnetime(newonetime);
 }
 
-// making async, wait response and then to make all set updated synchronously
-
 async function onmessagehelper(message){
-               let   emailaddress = email;
-                    emailaddress = message.email;
-      if(emailaddress){
-      await setEmail(emailaddress);
-}
+              let emailaddress = message.email;
+
 
                 if(toggleAdmin.length != 0){
              let datau = { "fromuserc": fromuser, "adminchatc": adminchat };
@@ -67,7 +61,7 @@ return "kampret";
             console.log(JSON.parse(e.data));  
           const message = JSON.parse(e.data);
 		onmessagehelper(message).then((resp) => {             
-              if(message.message && message.message !== "nehconndah"){
+              if(message.message){
               let newfromuser = fromuser;
                newfromuser.push(JSON.parse(e.data));
                 setFromuser(newfromuser);
@@ -152,7 +146,7 @@ return(
 <>
 <div className="tampil">
 <div className="blkareau">
-{ email &&  <button className="btnareau">{email}</button> }
+  <button className="btnareau">{fromuser[0].email}</button>
   <textarea type="textarea" readOnly className="txtareau" rows="10" cols="50" ref={userchat}>
     </textarea>
 </div>
