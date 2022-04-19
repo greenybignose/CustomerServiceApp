@@ -1,0 +1,333 @@
+server started at port 5000
+find
+masukgivemedata dari chatcomponent
+{ user: 'admin', message: '' }
+undefined
+available
+[
+  {
+    _id: new ObjectId("624834904355084b1ce0e2be"),
+    emailaddress: 'test@biasa.com',
+    usermessages: 'test\ntest lagi\nclose\nyang lain dong\n',
+    adm: 'admin',
+    admmessages: 'ya ues\nhopefully good\nhaha\ninsert\n'
+  }
+]
+sendnow sudah displice
+server started at port 5000
+masukgivemedata dari chatcomponent
+{ user: 'admin', message: '' }
+undefined
+available
+{ status: 'admindown', message: '' }
+undefined
+[]
+isi dari avail setelah admindown
+{ status: 'admindown', message: '' }
+undefined
+[]
+isi dari avail setelah admindown
+{ status: 'admindown', message: '' }
+undefined
+[]
+isi dari avail setelah admindown
+{ status: 'admindown', message: '' }
+undefined
+[]
+isi dari avail setelah admindown
+server started at port 5000
+server started at port 5000
+notfind
+{ status: 'userdown' }
+undefined
+[]
+abis dilakukan arrremov setelah k
+{ status: 'userdown' }
+undefined
+[]
+abis dilakukan arrremov setelah k
+{ status: 'userdown' }
+undefined
+[]
+abis dilakukan arrremov setelah k
+{ status: 'userdown' }
+undefined
+[]
+abis dilakukan arrremov setelah k
+{ status: 'userdown' }
+undefined
+[]
+abis dilakukan arrremov setelah k
+masukgivemedata dari chatcomponent
+{ user: 'admin', message: '' }
+undefined
+available
+masukgivemedata dari chatcomponent
+{ user: 'admin', message: '' }
+undefined
+[
+  {
+    _id: new ObjectId("625229e12947012d8bb18418"),
+    emailaddress: 'killer@jksfd.com',
+    usermessages: 'hoi\n',
+    adm: 'admin',
+    admmessages: 'whyyyyyy ?????\n'
+  }
+]
+sendnow sudah displice
+notfind
+available
+1 document inserted
+{ email: 'nah@lumayan', message: 'ok' }
+nah@lumayan
+[ 'nah@lumayan' ]
+{ user: 'admin', message: 'gkhj' }
+undefined
+masuk elseif pertama
+{ status: 'userdown' }
+undefined
+[]
+abis dilakukan arrremov setelah k
+{ status: 'userdown' }
+undefined
+[]
+abis dilakukan arrremov setelah k
+{ status: 'userdown' }
+undefined
+[]
+abis dilakukan arrremov setelah k
+{ status: 'userdown', email: 'nah@lumayan' }
+nah@lumayan
+[]
+abis dilakukan arrremov setelah k
+{ status: 'userdown', email: 'nah@lumayan' }
+nah@lumayan
+[]
+abis dilakukan arrremov setelah k
+{ status: 'userdown', email: 'nah@lumayan' }
+nah@lumayan
+[]
+abis dilakukan arrremov setelah k
+{ status: 'userdown', email: 'nah@lumayan' }
+nah@lumayan
+[]
+abis dilakukan arrremov setelah k
+{ status: 'admindown', message: '' }
+undefined
+[]
+isi dari avail setelah admindown
+{ status: 'admindown', message: '' }
+undefined
+[]
+isi dari avail setelah admindown
+{ status: 'admindown', message: '' }
+undefined
+[]
+isi dari avail setelah admindown
+{ status: 'admindown', message: '' }
+undefined
+[]
+isi dari avail setelah admindown
+{ status: 'admindown', message: '' }
+undefined
+[]
+isi dari avail setelah admindown
+server started at port 5000
+{ status: 'userdown' }
+undefined
+[]
+abis dilakukan arrremov setelah k
+{ status: 'userdown' }
+undefined
+[]
+abis dilakukan arrremov setelah k
+server started at port 5000
+{ status: 'userdown' }
+undefined
+[]
+abis dilakukan arrremov setelah k
+{ status: 'userdown' }
+undefined
+[]
+abis dilakukan arrremov setelah k
+{ status: 'userdown' }
+undefined
+[]
+abis dilakukan arrremov setelah k
+server started at port 5000
+{ status: 'userdown' }
+undefined
+[]
+abis dilakukan arrremov setelah k
+{ status: 'userdown' }
+undefined
+[]
+abis dilakukan arrremov setelah k
+{ status: 'userdown' }
+undefined
+[]
+abis dilakukan arrremov setelah k
+{ status: 'userdown' }
+undefined
+[]
+abis dilakukan arrremov setelah k
+find
+{ status: 'userdown' }
+undefined
+[]
+abis dilakukan arrremov setelah k
+{ status: 'userdown' }
+undefined
+[]
+abis dilakukan arrremov setelah k
+{ status: 'userdown' }
+undefined
+[]
+abis dilakukan arrremov setelah k
+{ status: 'userdown' }
+undefined
+[]
+abis dilakukan arrremov setelah k
+masukgivemedata dari chatcomponent
+{ user: 'admin', message: '' }
+undefined
+available
+[
+  {
+    _id: new ObjectId("625229e12947012d8bb18418"),
+    emailaddress: 'killer@jksfd.com',
+    usermessages: 'hoi\n',
+    adm: 'admin',
+    admmessages: 'whyyyyyy ?????\n'
+  }
+]
+sendnow sudah displice
+notfind
+available
+1 document inserted
+{ email: 'dimana@ajah.com', message: 'test neh' }
+dimana@ajah.com
+[ 'dimana@ajah.com' ]
+{ user: 'admin', message: 'lagi' }
+undefined
+masuk elseif pertama
+{ email: 'dimana@ajah.com', message: 'payah' }
+dimana@ajah.com
+arrquenol panjang != 0
+dimana@ajah.comaftercheck
+notfind
+1 document inserted
+{ status: 'userdown' }
+undefined
+[]
+abis dilakukan arrremov setelah k
+{ status: 'userdown' }
+undefined
+[]
+abis dilakukan arrremov setelah k
+{ status: 'userdown' }
+undefined
+[]
+abis dilakukan arrremov setelah k
+{ status: 'userdown', email: 'dimana@ajah.com' }
+dimana@ajah.com
+[]
+abis dilakukan arrremov setelah k
+{ status: 'userdown', email: 'dimana@ajah.com' }
+dimana@ajah.com
+[]
+abis dilakukan arrremov setelah k
+{ status: 'userdown', email: 'dimana@ajah.com' }
+dimana@ajah.com
+[]
+abis dilakukan arrremov setelah k
+{ status: 'userdown', email: 'dimana@ajah.com' }
+dimana@ajah.com
+[]
+abis dilakukan arrremov setelah k
+{ status: 'userdown', email: 'dimana@ajah.com' }
+dimana@ajah.com
+[]
+abis dilakukan arrremov setelah k
+{ status: 'userdown', email: 'dimana@ajah.com' }
+dimana@ajah.com
+[]
+abis dilakukan arrremov setelah k
+{ user: 'admin', message: 'nah admin duluan kan' }
+undefined
+masuk elseif pertama
+{ user: 'admin', message: 'this is sucks\n' }
+undefined
+masuk elseif pertama
+{ email: 'dulu@jsdfl.com', message: 'sucks' }
+dulu@jsdfl.com
+arrquenol panjang != 0
+masuk jika panjang arrquenol panjang != 0 dan barumessageemail gak sama arrquenol
+[object Object]anggota pertama dari arquen
+{ status: 'admindown', message: '' }
+undefined
+[]
+isi dari avail setelah admindown
+{ status: 'admindown', message: '' }
+undefined
+[]
+isi dari avail setelah admindown
+{ status: 'admindown', message: '' }
+undefined
+[]
+isi dari avail setelah admindown
+{ status: 'admindown', message: '' }
+undefined
+[]
+isi dari avail setelah admindown
+{ status: 'admindown', message: '' }
+undefined
+[]
+isi dari avail setelah admindown
+{ status: 'admindown', message: '' }
+undefined
+[]
+isi dari avail setelah admindown
+{ status: 'userdown' }
+undefined
+[ { email: 'dulu@jsdfl.com', message: 'sucks' } ]
+abis dilakukan arrremov setelah k
+{ status: 'userdown' }
+undefined
+[ { email: 'dulu@jsdfl.com', message: 'sucks' } ]
+abis dilakukan arrremov setelah k
+{ status: 'userdown' }
+undefined
+[ { email: 'dulu@jsdfl.com', message: 'sucks' } ]
+abis dilakukan arrremov setelah k
+{ status: 'userdown', email: 'dulu@jsdfl.com' }
+dulu@jsdfl.com
+[ 0 ]
+arrremov isinya abis dipush dengan k
+[]
+abis dilakukan arrremov setelah k
+{ status: 'userdown', email: 'dulu@jsdfl.com' }
+dulu@jsdfl.com
+[]
+abis dilakukan arrremov setelah k
+{ status: 'userdown', email: 'dulu@jsdfl.com' }
+dulu@jsdfl.com
+[]
+abis dilakukan arrremov setelah k
+{ status: 'userdown', email: 'dulu@jsdfl.com' }
+dulu@jsdfl.com
+[]
+abis dilakukan arrremov setelah k
+{ status: 'userdown', email: 'dulu@jsdfl.com' }
+dulu@jsdfl.com
+[]
+abis dilakukan arrremov setelah k
+{ status: 'userdown', email: 'dulu@jsdfl.com' }
+dulu@jsdfl.com
+[]
+abis dilakukan arrremov setelah k
+{ status: 'userdown', email: 'dulu@jsdfl.com' }
+dulu@jsdfl.com
+[]
+abis dilakukan arrremov setelah k
+1 document inserted
