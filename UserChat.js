@@ -3,7 +3,7 @@ import { readFileSync } from "fs";
 import './Fab.css';
 import './UserChat.css';
 
-const URL = 'wss://159.203.39.197:3000';
+const URL = 'wss://www.primer-logistics.com';
 
 const UserChat = (props) => {
 
@@ -11,6 +11,7 @@ const UserChat = (props) => {
      const  textchat = useRef(null);      
       const adminchat = useRef(null);  
   const [ws, setWs] = useState(new WebSocket(URL));
+const arrofmess = [];
          
 useEffect(() => {
    if(props.nantri){
@@ -46,27 +47,49 @@ useEffect(() => {
           
             ws.onmessage = (e) => {
               const message = JSON.parse(e.data);
-               if(message.to  === props.email){
+              if(message.to  === props.email){
                  adminchat.current.value = message.message;
                   }
                else if(message.status === "admindown"){
                     console.log("admindown");
-                   //todo shwing up message admindown
-                      }
-            }  
+              adminchat.current.value = "connection to admin down";             
+                       }
+               else if(message.forcedown === "yes" && message.email === props.email){
+                 let emailmess = props.email;
+                  let statusnya = "userdown";
+                   const message = { status: statusnya, email: emailmess };
+                ws.send(JSON.stringify(message));
+                 ws.close();
+         }   }  
 
 
            window.addEventListener('beforeunload', function(k){
                   k.preventDefault();
                   let emailnya = props.email;
-                   const message = { status: "userdown", email: emailnya };
+                  let statusnya = "userdown";
+                   const message = { status: statusnya, email: emailnya };
                 ws.send(JSON.stringify(message));
-              ws.onclose = () => {
-                console.log('WebSocket Disconnected');
-              }
-            });
+                 ws.close();
 
+    });
 
+function handleSend(index) {
+     if(ws.readyState === WebSocket.OPEN){
+        if(arrofmess.length === 1){
+          ws.send(JSON.stringify(arrofmess[0]));
+           arrofmess.length = 0;
+}
+        else {
+         ws.send(JSON.stringify(arrofmess[index]));
+          if(index === arrofmess.length -1){
+             arrofmess.length = 0;
+         }
+     }
+   }
+     else if(ws.readyState === WebSocket.CONNECTING) {
+       ws.addEventListener("open", () => handleSend(arrofmess.length - 1));
+   }
+};
 
 
 function handleSubmit(event){
@@ -74,7 +97,8 @@ function handleSubmit(event){
      let emailnya = props.email;
   let tmpchat = textchat.current.value;
                 const message = { email: emailnya, message: tmpchat};
-                ws.send(JSON.stringify(message));
+                 arrofmess.push(message);
+                 handleSend(null);
 
 textchat.current.value = '';
       

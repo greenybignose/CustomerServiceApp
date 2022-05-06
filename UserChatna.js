@@ -21,7 +21,7 @@ function handleSubmit(event){
      let emailnya = props.email;
   let tmpchat = textchat.current.value;
                 const message = { email: emailnya, messagena: tmpchat};
-fetch("https://159.203.39.197:3000/memberarea", {
+fetch("https://www.primer-logistics.com/memberarea", {
                method: "POST",
                headers: { 'Content-Type': 'application/json' },
                body: JSON.stringify(message)

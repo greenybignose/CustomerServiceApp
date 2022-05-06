@@ -12,53 +12,6 @@
   border-radius: 1.2em;
   }
 
-.divfirst {
-  display: block;
-  width: 90%;
-  margin-top: 15%;
-  margin-left: 5%;
-  margin-bottom: 5%;
-  margin-right: 5%;
-  padding: 1% 1% 1% 1%;
-  border-radius: 1.2em;
-  background-color: white;
-} 
- 
-.txtpart1 {
-  display: block;
-  width: fit-content;
-  height: fit-content;
-  font-family: helvetica;
-  text-align: justify;
-}
-
-.anotherdiv1 {
-   display: block;
-   width: auto;
-   height: auto;
-   margin-left: 5%;
-   margin-bottom: 5%;
-   margin-right: 5%;
-}
-
-.typetxt1 {
-  display: inline-block;
-  width: auto;
-  border-radius: 0.5em;
-  border-style: solid;
-  border-color: black;
-  margin-right: 5%;
-  padding-top: 0%;
-}
-
-.btnok1 {
-  display: inline-block;
-  width: auto;
-  border-radius: 0.5em;
-  border-style: solid;
-  border-color: black;
-}
-
 .ngumpet {
   visibility: hidden;
 }
@@ -70,10 +23,8 @@
    bottom: 50px;
    right: 50px;
    cursor: pointer;
- /*  width: 50px;
-   height: 50px;
-   border-radius: 100%;
-   box-shadow: 10px 10px 5px #aaaaaa; */
+   width: 10%;
+   height: 10%;
     }
 
 .fi {
@@ -83,16 +34,22 @@
    cursor: pointer;
 }
 
-.btncp {
-  vertical-align: top;
-}
-
-.btns {
- vertical-align: top;
-}
-
-.btnm {
+.buttonmenu1 {
 vertical-align: top;
+display: inline-block;
+margin-left: 20%;
+}
+
+.buttonmenu2 {
+vertical-align: top;
+display: inline-block;
+margin-left: 20%;
+}
+
+.buttonmenu3 {
+vertical-align: top;
+display: inline-block;
+margin-left: 20%;
 }
 
 .hra {
@@ -106,29 +63,64 @@ vertical-align: top;
     height: 40px;
 }
 
-.nav {
+.divimage {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 150px;
+}
+
+.divul {
    position:absolute;
-   top: 50px;
+   top: 150px;
    width: 100%;
-   height: auto;
+   height: 70px;
    background-image: linear-gradient(red, yellow);
-   link-style-type: none;
-   text-align: center;
-   margin: 0;
-   padding: 0;
+
 }
 
-.nav li {
+.divinside1 {
    display: inline-block;
-    
-  padding: 0px;
-   margin: 0px;
+   width: 40%;
+   height: inherit;    
+  margin-top:  0px;
+   margin-left: 0px;
+   margin-right: 0px;
+   margin-bottom: 0px;
 }
 
-.formnya {
+.divinside2 {
+   display: inline-block;
+   width: 30%;
+   height: inherit;    
+  margin-top:  0px;
+   margin-left: 0px;
+   margin-right: 0px;
+   margin-bottom: 0px;
+}
+
+.divinside3 {
+   display: inline-block;
+   width: 30%;
+   height: inherit;    
+  margin-top:  0px;
+   margin-left: 0px;
+   margin-right: 0px;
+   margin-bottom: 0px;
+}
+
+
+.companycomp {
+   position: absolute;
+   top: 260px;
+   width: 100%;
+}
+
+
+.memberarea {
   position: absolute;
   border-style: solid;
-  top: 50%;
+  top: 60%;
   left: 50%;
   margin-right: -50%;
   border-radius: 1em;

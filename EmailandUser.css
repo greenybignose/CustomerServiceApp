@@ -1,0 +1,79 @@
+.divfirst {
+  display: block;
+  width: 90%;
+  margin-top: 15%;
+  margin-left: 5%;
+  margin-bottom: 5%;
+  margin-right: 5%;
+  padding: 1% 1% 1% 1%;
+  border-radius: 1.2em;
+  background-color: white;
+} 
+ 
+.txtpart1 {
+  display: block;
+  width: fit-content;
+  height: fit-content;
+  font-family: helvetica;
+  text-align: justify;
+}
+
+.anotherdiv1 {
+   display: block;
+   width: auto;
+   height: auto;
+   margin-left: 5%;
+   margin-bottom: 5%;
+   margin-right: 5%;
+}
+
+.typetxt1 {
+  display: inline-block;
+  width: auto;
+  border-radius: 0.5em;
+  border-style: solid;
+  border-color: black;
+  margin-right: 5%;
+  padding-top: 0%;
+}
+
+.typetxt1:hover {
+    display: inline-block;
+  width: auto;
+  border-radius: 0.5em;
+  border-style: solid;
+  border-color: black;
+  margin-right: 5%;
+  padding-top: 0%;
+}
+
+.typetxt1:active {
+    display: inline-block;
+  width: auto;
+  border-radius: 0.5em;
+  border-style: solid;
+  border-color: black;
+  margin-right: 5%;
+  padding-top: 0%;
+  outline: none;
+  outline-width: 0px;
+}
+
+.typetxt1:focus {
+    display: inline-block;
+  width: auto;
+  border-radius: 0.5em;
+  border-style: solid;
+  border-color: black;
+  margin-right: 5%;
+  padding-top: 0%;
+  outline: none;
+  outline-width: 0px;
+}
+.btnok1 {
+  display: inline-block;
+  width: auto;
+  border-radius: 0.5em;
+  border-style: solid;
+  border-color: black;
+}

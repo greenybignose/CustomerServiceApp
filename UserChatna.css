@@ -53,6 +53,38 @@
   font-family: serif;
 }
 
+.txtareau:hover {
+   resize: none;
+  display: block;
+  width: 250px;
+  height: 60px;
+  border-radius: 1em;
+  font-family: serif;
+}
+
+.txtareau:focus {
+   resize: none;
+  display: block;
+  width: 250px;
+  height: 60px;
+  border-radius: 1em;
+  font-family: serif;
+  outline: none;
+  outline-width: 0px;
+}
+
+
+.txtareau:active {
+   resize: none;
+  display: block;
+  width: 250px;
+  height: 60px;
+  border-radius: 1em;
+  font-family: serif;
+  outline: none;
+  outline-width: 0px;
+}
+
 .btnsubmit {
   display: block;
   border-radius: 1em;
@@ -61,4 +93,32 @@
   font-family: serif;
 }
 
+
+.btnsubmit:hover {
+  display: block;
+  border-radius: 1em;
+  margin-top: 5%;
+  font-style: italic;
+  font-family: serif;
+}
+
+.btnsubmit:focus {
+  display: block;
+  border-radius: 1em;
+  margin-top: 5%;
+  font-style: italic;
+  font-family: serif;
+  outline: none;
+  outline-width: 0px;
+}
+
+.btnsubmit:active {
+  display: block;
+  border-radius: 1em;
+  margin-top: 5%;
+  font-style: italic;
+  font-family: serif;
+  outline: none;
+  outline-width: 0px;
+}
 

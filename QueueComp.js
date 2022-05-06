@@ -2,9 +2,9 @@ import React, {useRef, useEffect, useState} from 'react';
 import { readFileSync } from "fs";
 import './QueueComp.css';
 
-const URL = 'wss://159.203.39.197:3000';
+const URL = 'wss://www.primer-logistics.com';
 
-const QueueComp = () => {
+const QueueComp = (props) => {
 
          const [onetime , setOnetime] = useState('yes');
          const [fromuser, setFromuser ] = useState([]);
@@ -12,11 +12,9 @@ const QueueComp = () => {
       const [email, setEmail] = useState();
      const  textchat = useRef(null);      
       const userchat = useRef(null);
-
+     const [queuepage, setQueuepage] = useState();
 
   const [ws, setWs] = useState(new WebSocket(URL));
-const toggleAdmin = [];
-const toggleUser = [];
 
 
               if(onetime  === "yes"){
@@ -37,48 +35,45 @@ async function onmessagehelper(message){
                     emailaddress = message.email;
       if(emailaddress){
       await setEmail(emailaddress);
-}
 
-                if(toggleAdmin.length != 0){
-             let datau = { "fromuserc": fromuser, "adminchatc": adminchat };
-const response = await fetch("https://159.203.39.197:3000/memberarea", {
-               method: "POST",
-               headers: { 'Content-Type': 'application/json' },
-               body: JSON.stringify(datau)
-});
-
-if(response.ok){
-
-                      let empfromuser = fromuser;
-                      empfromuser.length = 0;
-                      setFromuser(empfromuser);
-                       let empadminchat = adminchat;
-                         empadminchat.length = 0;
-                      setAdminchat(empadminchat);
-                    toggleAdmin.length = 0;
                               
-}}
+}
 return "kampret";
 
 }
+
+
+
+
+
+
+
+
+function onmessagequeuehelp(message){
+             let newqueuepage = queuepage;
+                newqueuepage = message.jumlahqueue;
+              setQueuepage(newqueuepage);
+    }
+
 
             ws.onmessage = (e) => {
   
             console.log(JSON.parse(e.data));  
           const message = JSON.parse(e.data);
+              
+               if(message.queuecount === "yes"){
+                   onmessagequeuehelp(message);
+}
+             else{
 		onmessagehelper(message).then((resp) => {             
               if(message.message && message.message !== "nehconndah"){
-              let newfromuser = fromuser;
-               newfromuser.push(JSON.parse(e.data));
-                setFromuser(newfromuser);
-                 
-                    console.log(newfromuser);
+      setFromuser(fromuser => [...fromuser, message]);
+
+                    console.log("isi dari fromuser neh" + fromuser[0]);
                   userchat.current.value = message.message;
-               if(adminchat.length != 0 && fromuser.length != 0){
-                   toggleUser.push(1);
 }
-}});
-}
+});
+}}
 
 
 
@@ -86,64 +81,76 @@ return "kampret";
 
 
 
-           window.addEventListener('beforeunload', function(k){
+           window.addEventListener('unload', function(k){
                   k.preventDefault();
                    const message = { status: "admindown", message: ''};
                 ws.send(JSON.stringify(message));
-              ws.onclose = () => {
-                console.log('WebSocket Disconnected');
-              }
+                ws.close();
             });
 
-async function helperhandlesubmit(){
- 
- if(toggleUser.length != 0){
 
-  let datau = { "fromuserc": fromuser, "adminchatc": adminchat };
-const responses = await fetch("https://159.203.39.197:3000/memberarea", {
+async function handlesendfetch(){
+   if(fromuser[0] && adminchat[0]){ 
+
+      console.log("sudah masuk ke handlesendfetch");
+
+  let datau = { "fromuserc": fromuser[0].email, "usermessages": fromuser[0].message,
+               "adminchatc": adminchat[0].user, "admmessages": adminchat[0].message,
+                  "sourcenya": "memberarea" };
+     props.a(datau);                
+
+  await fetch("https://www.primer-logistics.com", {
                method: "POST",
                headers: { 'Content-Type': 'application/json' },
                body: JSON.stringify(datau)
-});
-if(responses.ok){
-
-                      let empfromuser = fromuser;
-                      empfromuser.length = 0;
-                      setFromuser(empfromuser);
-                       let empadminchat = adminchat;
-                         empadminchat.length = 0;
-                      setAdminchat(empadminchat);
-
-                    toggleUser.length = 0;  
-
-}}
-return "pret";
+}).then((response) => response.json())
+.then(function(data){
+   if(data.answer === "done"){
+                    console.log("dapat response ok");
+                      setFromuser([]);
+                      setAdminchat([]);
 }
+});
+}}
 
 
-function handleSubmit(event){
+
+function handleClicksend(event){
         event.preventDefault();
  
           
-         helperhandlesubmit().then((resp) => {
           if(textchat.current.value !== ''){
-            let  chatbaru = adminchat;
+ if(ws.readyState === WebSocket.OPEN){
                  let tmpchat = textchat.current.value;
                 const message = { user: "admin", message: tmpchat};
-        chatbaru.push(message);
-          setAdminchat(chatbaru);
                 ws.send(JSON.stringify(message));
+ setAdminchat(adminchat => [...adminchat, message]);
    
-            }
+   }
+  else if(ws.readyState === WebSocket.CONNECTING){
+         let newqueuepage = queuepage;
+           newqueuepage = "Connecting...";
+          setQueuepage(newqueuepage);
+}
 
 textchat.current.value = '';
 
- if(adminchat.length != 0 && fromuser.length != 0){
-                   toggleAdmin.push(1);
-} 
+}
+}
 
-console.log(adminchat);      
-});
+useEffect(() => {
+        handlesendfetch(); }, [JSON.stringify(adminchat)]);
+
+useEffect(() => {
+        handlesendfetch(); }, [JSON.stringify(fromuser)]);
+
+ 
+
+      console.log("adminchat isinya neh" + adminchat[0]);
+
+function handleClicknq(event){
+   let messagechange = {"forcedown": "yes", "email": email}
+       ws.send(JSON.stringify(messagechange));
 }
 
 
@@ -157,13 +164,15 @@ return(
     </textarea>
 </div>
 <div className="blkareaa">
-  <form action="" onSubmit={(e) => handleSubmit(e)}>
 <button className="btnareaa">Admin</button>
   <textarea type="textarea" className="txtareaa" rows="10" cols="50"  
    ref={textchat} >
     </textarea>
-   <input type="submit" className="btnsubmit" value="send"/>
-   </form> 
+      <div classNanem="divstraight">
+     <p>{queuepage}</p>
+       <button onClick={(e) => handleClicknq(e)}>Next Queue</button>  
+     <button className="btnsubmit" onClick={(e) => handleClicksend(e)}>Send</button>
+</div>
 </div> 
 </div>
 </>

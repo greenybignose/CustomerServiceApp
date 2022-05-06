@@ -55,10 +55,10 @@ return;
 
 function fetchdata() {
 
-     let datauser = {"emailaddress": email, "currentuser": username};
+     let datauser = {"emailaddress": email, "currentuser": username, "sourcenya": "betweenuname"};
 
         
-         fetch("https://159.203.39.197:3000/betweenuname", {
+         fetch("https://www.primer-logistics.com", {
                method: "POST",
                headers: { 'Content-Type': 'application/json' },
                body: JSON.stringify(datauser)

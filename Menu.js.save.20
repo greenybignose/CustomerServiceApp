@@ -24,7 +24,7 @@ const [osbuttons, setOsbuttons] = useState(OSButton);
 const [mbuttons, setMbuttons] = useState(MButton);  
 const [tampilan, setTampilan] = useState("ngumpet");
 const [feat, setFeat] = useState("featheri");
-const [chatpic, setChatpic] = useState(ChatUs);
+const [chatpic, setChatpic] = setState(ChatUs);
 
 function handleClicktoggle(){
  let newtampilan = tampilan;
@@ -58,7 +58,7 @@ const backuchat = (backnow) => {
 }
 }
 
-function handleentercompro(event){
+function handleovercompro(event){
     if(event.target.name === "compro"){
         let newcpbuttons = cpbuttons;
          newcpbuttons=CPButtonP;
@@ -72,24 +72,10 @@ function handleoverours(event){
           setOsbuttons(newosbuttons);
 }}
 
-function handleentermember(event){
+function handleovermember(event){
     if(event.target.name === "member"){
         let newmbuttons = mbuttons;
          newmbuttons=MButtonP;
-          setMbuttons(newmbuttons);
-}}
-
-function handleoutcompro(event){
-    if(event.target.name === "compro"){
-        let newcpbuttons = cpbuttons;
-         newcpbuttons=CPButton;
-          setCpbuttons(newcpbuttons);
-}}
-
-function handleoutmember(event){
-    if(event.target.name === "member"){
-        let newmbuttons = mbuttons;
-         newmbuttons=MButton;
           setMbuttons(newmbuttons);
 }}
 
@@ -115,8 +101,7 @@ function handlemouseout(){
        <div className="divul">
 <div className="divinside1">
                  <img src={cpbuttons}  className="buttonmenu1" name="compro" width="60%" height="76px" 
-onMouseEnter={(e) => handleentercompro(e)} onMouseOut={(e) => handleoutcompro(e)} 
-onClick={(e) => handleClick(e)} />
+onMouseOver={(e) => handleovercompro(e)} onClick={(e) => handleClick(e)} />
 </div>
 <div className="divinside2">
                 <img src={osbuttons} className="buttonmenu2" name="ours" width="60%" height="80px" 
@@ -124,14 +109,13 @@ onMouseOver={(e) => handleoverours(e)} />
 </div>
 <div className="divinside3" >
   <img src={mbuttons}  name="member" className="buttonmenu3" width="40%" height="80px"
-onMouseEnter={(e) => handleentermember(e)} onMouseOut={(e) => handleoutmember(e)}
- onClick={(e) => handleClick(e)} />
+onMouseOver={(e) => handleovermember(e)}  onClick={(e) => handleClick(e)} />
 </div>
 </div>
         {componentvalue}
 <div id="diva" className="diva">    
- <img src={chatpic} width="80%" height="100%"  onClick={() => handleClicktoggle()} onMouseEnter={() =>
-handlemouseenter()} onMouseOut={() => handlemouseout()}/>
+ <img src={chatpic} width="80%" height="100%"  onClick={() => handleClicktoggle()} onmouseenter={() =>
+handlemouseenter()} onmouseout={() => handlemouseout()}/>
 </div>
 <div>
         <Betweenuname vis={tampilan}  turnoff={backuchat} />
