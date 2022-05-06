@@ -331,3 +331,211 @@ dulu@jsdfl.com
 []
 abis dilakukan arrremov setelah k
 1 document inserted
+server started at port 5000
+notfind
+1 document inserted
+notfind
+masukgivemedata dari chatcomponent
+{ user: 'admin', message: '' }
+undefined
+available
+{ user: 'admin', message: 'apaan' }
+undefined
+masuk elseif pertama
+{ status: 'admindown', message: '' }
+undefined
+[]
+isi dari avail setelah admindown
+{ status: 'admindown', message: '' }
+undefined
+[]
+isi dari avail setelah admindown
+{ status: 'admindown', message: '' }
+undefined
+[]
+isi dari avail setelah admindown
+{ status: 'admindown', message: '' }
+undefined
+[]
+isi dari avail setelah admindown
+masukgivemedata dari chatcomponent
+{ user: 'admin', message: '' }
+undefined
+available
+{ user: 'admin', message: 'apaan' }
+undefined
+masuk elseif pertama
+{ status: 'admindown', message: '' }
+undefined
+[]
+isi dari avail setelah admindown
+{ status: 'admindown', message: '' }
+undefined
+[]
+isi dari avail setelah admindown
+{ status: 'admindown', message: '' }
+undefined
+[]
+isi dari avail setelah admindown
+{ status: 'admindown', message: '' }
+undefined
+[]
+isi dari avail setelah admindown
+masukgivemedata dari chatcomponent
+{ user: 'admin', message: '' }
+undefined
+available
+{ status: 'admindown', message: '' }
+undefined
+[]
+isi dari avail setelah admindown
+{ status: 'admindown', message: '' }
+undefined
+[]
+isi dari avail setelah admindown
+{ status: 'admindown', message: '' }
+undefined
+[]
+isi dari avail setelah admindown
+{ status: 'admindown', message: '' }
+undefined
+[]
+isi dari avail setelah admindown
+masukgivemedata dari chatcomponent
+{ user: 'admin', message: '' }
+undefined
+available
+{ status: 'admindown', message: '' }
+undefined
+[]
+isi dari avail setelah admindown
+{ status: 'admindown', message: '' }
+undefined
+[]
+isi dari avail setelah admindown
+{ status: 'admindown', message: '' }
+undefined
+[]
+isi dari avail setelah admindown
+{ status: 'admindown', message: '' }
+undefined
+[]
+isi dari avail setelah admindown
+notfind
+1 document inserted
+notfind
+1 document inserted
+find
+masukgivemedata dari chatcomponent
+{ user: 'admin', message: '' }
+undefined
+available
+{ user: 'admin', message: 'ppppp' }
+undefined
+masuk elseif pertama
+[
+  {
+    _id: new ObjectId("625229e12947012d8bb18418"),
+    emailaddress: 'killer@jksfd.com',
+    usermessages: 'hoi\n',
+    adm: 'admin',
+    admmessages: 'whyyyyyy ?????\n'
+  }
+]
+sendnow sudah displice
+notfind
+available
+1 document inserted
+{ email: 'goblok@gmail.com', message: 'nehconndah' }
+goblok@gmail.com
+[ 'goblok@gmail.com' ]
+{ email: 'goblok@gmail.com', message: 'halo bro' }
+goblok@gmail.com
+arrquenol panjang != 0
+goblok@gmail.comaftercheck
+[ { email: 'goblok@gmail.com', message: 'halo bro' } ]
+masuk neh fromuserc
+[ { user: 'admin', message: 'ppppp' } ]
+masuk neh adminchatc
+{ messages: 'halo bro\n' }
+{ messages: 'ppppp\n' }
+1 document inserted
+[ { email: 'goblok@gmail.com', message: 'halo bro' } ]
+masuk neh fromuserc
+[ { user: 'admin', message: 'ppppp' } ]
+masuk neh adminchatc
+{ messages: 'halo bro\n' }
+{ messages: 'ppppp\n' }
+{ user: 'admin', message: 'apaan' }
+undefined
+masuk elseif pertama
+{
+  email: 'goblok@gmail.com',
+  message: 'neh dari loe messagenya bro ?\n'
+}
+goblok@gmail.com
+arrquenol panjang != 0
+goblok@gmail.comaftercheck
+{ user: 'admin', message: 'iya pea' }
+undefined
+masuk elseif pertama
+{ email: 'goblok@gmail.com', message: 'mantapppp\n' }
+goblok@gmail.com
+arrquenol panjang != 0
+goblok@gmail.comaftercheck
+{ status: 'admindown', message: '' }
+undefined
+[]
+isi dari avail setelah admindown
+{ status: 'admindown', message: '' }
+undefined
+[]
+isi dari avail setelah admindown
+{ status: 'admindown', message: '' }
+undefined
+[]
+isi dari avail setelah admindown
+{ status: 'admindown', message: '' }
+undefined
+[]
+isi dari avail setelah admindown
+{ status: 'admindown', message: '' }
+undefined
+[]
+isi dari avail setelah admindown
+{ status: 'admindown', message: '' }
+undefined
+[]
+isi dari avail setelah admindown
+masukgivemedata dari chatcomponent
+{ email: 'goblok@gmail.com', message: 'okay thanks alot bro' }
+goblok@gmail.com
+arrquenol panjang != 0
+goblok@gmail.comaftercheck
+{
+  email: 'goblok@gmail.com',
+  message: 'artinya lewat routing different ip running smooth '
+}
+goblok@gmail.com
+arrquenol panjang != 0
+goblok@gmail.comaftercheck
+{ email: 'goblok@gmail.com', message: 'ya ues gw out neh' }
+goblok@gmail.com
+arrquenol panjang != 0
+goblok@gmail.comaftercheck
+{ status: 'userdown', email: 'goblok@gmail.com' }
+goblok@gmail.com
+[]
+abis dilakukan arrremov setelah k
+{ status: 'userdown', email: 'goblok@gmail.com' }
+goblok@gmail.com
+[]
+abis dilakukan arrremov setelah k
+{ status: 'userdown', email: 'goblok@gmail.com' }
+goblok@gmail.com
+[]
+abis dilakukan arrremov setelah k
+{ status: 'userdown', email: 'goblok@gmail.com' }
+goblok@gmail.com
+[]
+abis dilakukan arrremov setelah k

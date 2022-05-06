@@ -30,4 +30,3 @@ console.error(error)
 
 
 module.exports = {dbidgived};
-

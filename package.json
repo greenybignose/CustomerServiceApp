@@ -9,6 +9,7 @@
   "author": "greeny",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "mongodb": "^4.4.1",
     "socket.io": "^4.4.1",
     "underscore": "^1.13.2",

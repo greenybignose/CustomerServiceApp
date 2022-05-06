@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const fs = require("fs");
 const bodyParser = require("body-parser");
+
 const dbidcheck = require("./Dbidcheck");
 const dbidinsert = require("./Insertdbid");
 const dbidcheckm = require("./Dbidcheckm");
@@ -10,18 +11,23 @@ const dbidinsertm = require("./Insertdbidm");
 const dbidcheckcc = require("./DbidcheckCc");
 const dbidinsertcc = require("./InsertdbidCc"); 
 const dbidcheckgived = require("./DbidcheckGived");
+
 const unamecheckconn = require("./UnameChecking");
 const wss = require("ws");
 const EventEmitter = require('events');
 const myEmitter = new EventEmitter();
 const WebSocketServer = wss.Server;
-
+const cors = require('cors');
 const avail = [];
 const arrquenol = [];
 const arrquen = [];
 const ip = [];
 const arrset = [];
 const arrremov = [];
+const loginnow = [];
+const countq = [];
+
+
 
    myEmitter.on('event', function firstListener(arg1){
            if(arg1 === "available" && avail.length == 0){
@@ -34,22 +40,23 @@ const arrremov = [];
 
 app.use('/', express.static('../my-app/build'));
 app.use('/memberarea', express.static('../my-app/build'));
+app.use(cors());
+
 app.use(bodyParser.json());
 
-app.post('/memberarea', function(req, res) {
+app.post('/', function(req, res, next) {
+
+if(req.body.sourcenya === "memberarea"){
 if(req.body.uname !== undefined && req.body.pass !== undefined){
  unamecheckconn.unamecheck(req.body.uname, req.body.pass).then(function(checkuser){
 
      if(checkuser === "find"){
-     res.send({"answer": "available"});
+     loginnow.push("yes") && res.send({"answer": "available"});
 
-    console.log("find");
-
-
-
+    console.log("member find");
 
    }
-    else if(checkuser === "notfind"){
+    else if(checkuser === "member notfind"){
       console.log("notfind");
 }   
      });
@@ -64,75 +71,57 @@ if(req.body.messagena !== undefined){
 
 
 if(req.body.fromuserc !== undefined && req.body.adminchatc !== undefined){
-              res.send({"answer": "aneh"});
 
-     console.log(req.body.fromuserc);
-       console.log("masuk neh fromuserc");
-     console.log(req.body.adminchatc);
-    console.log("masuk neh adminchatc");
 /* Buat templatenya dulu tuk maskukin data dari fromuserc karena berupa array */
-
-       const madness = '{ "messages": "" }';
-       const capmess = JSON.parse(madness);  
-      const madnessadm = '{ "messages": ""}';
-       const capmessadm = JSON.parse(madnessadm);
     
 
-   for(let o = 0; o < req.body.fromuserc.length; o++){
-         capmess.messages += req.body.fromuserc[o].message + "\n";
 
-}
-   for(let u = 0; u < req.body.adminchatc.length; u++){
-         capmessadm.messages += req.body.adminchatc[u].message + "\n";
-}
-console.log(capmess);
-console.log(capmessadm);
-
-
-     dbidcheckcc.dbidcc(req.body.fromuserc[0].email, capmess.messages, req.body.adminchatc[0].user, 
-        capmessadm.messages).then(function(checkdbid){
+     dbidcheckcc.dbidcc(req.body.fromuserc, req.body.usermessages, 
+req.body.adminchatc, req.body.admmessages).then(function(checkdbid){
           
         if(checkdbid === "notfind"){
-        dbidinsertcc.insertdbidcc(req.body.fromuserc[0].email, capmess.messages, req.body.adminchatc[0].user, 
-        capmessadm.messages);
+        dbidinsertcc.insertdbidcc(req.body.fromuserc, req.body.usermessages, 
+req.body.adminchatc, req.body.admmessages);
  }});
 
-
+res.send({"answer": "done"});
 
 }
+
+if(req.body.checklogin !== undefined) {
+  if(req.body.checklogin === "yes"){
+       if(loginnow.length !== 0){
+           res.send({"answer": "sudah"});
+}
+      else {
+          res.send({"answer": "blum"});
+}
+}
+}
+
 
 if(req.body.givemedata !== undefined){
       if(req.body.givemedata === "yes"){
-      console.log("masukgivemedata dari chatcomponent");
          dbidcheckgived.dbidgived().then(function (sendnow){
-       res.send(sendnow)});
-}
-     else{
-         dbidcheckgived.dbidgived().then(function (sendnow){
-             for( let k = 0; k < sendnow.length; k++){             
-               if(sendnow[k]._id.toString().substring(0,8) === req.body.givemedata){
-                     sendnow.splice(0, k);
-       res.send(sendnow);
-          console.log(sendnow);
-             console.log("sendnow sudah displice");
-           break;
-}}
+       res.send(sendnow)
+       console.log(sendnow);
+
 });
+    console.log("givemedata telah disend")     
 }
 
-
+}
 
 }
-});
 
+else if(req.body.sourcenya === "betweenuname"){
 
-app.post('/betweenuname', function(req, res) {
 if(req.body.emailaddress !== undefined && req.body.currentuser !== undefined){
       dbidcheck.dbid(req.body.emailaddress, req.body.currentuser).then(function(checkdbid){
           
         if(checkdbid === "notfind"){
         dbidinsert.insertdbid(req.body.emailaddress, req.body.currentuser);
-      console.log("notfind");
+      console.log("user notfind");
         if(avail[0] === "available" && arrquenol.length === 0){
              console.log(avail[0]);
             res.send({"answer": "available"});
@@ -172,14 +161,15 @@ if(req.body.emailaddress !== undefined && req.body.currentuser !== undefined){
         else if(avail.length === 0){
              res.send({"answer": "notavailable"});
 }
-    console.log("find");
+    console.log("user find");
   
 
    }   
      });
 }
-});
 
+}
+});
 
 const options = {
     key: fs.readFileSync("server.key"),
@@ -188,13 +178,20 @@ const options = {
 
 var server = https.createServer(options, app);
 
+function sendcountq(connection){
+                     let queuem = {"queuecount": "yes", "jumlahqueue": countq.length};
+wssx.clients.forEach(function(client) {
+      if (client !== connection && client.readyState === wss.OPEN) {
+        client.send(JSON.stringify(queuem));
+}});
+                    
+
+}
 
 
 
 
-
-
-server.listen(3000, 'testprog', function(req, res) {
+server.listen(443, 'testprog', function(req, res) {
               console.log("server started at port 5000");
 }); 
 
@@ -212,7 +209,7 @@ wssx.on("connection", function connection(ws){
        let barumessage = JSON.parse(newmessage);
 
         let reg = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}'); 
-console.log(barumessage);              
+console.log(newmessage + "newmessage isinya");              
  console.log(barumessage.email);   
               
      if(barumessage.user === "admin" && barumessage.message === '' && avail.length == 0) {
@@ -228,6 +225,7 @@ wssx.clients.forEach(function(client) {
 }});
         }
       else if(barumessage.status === "userdown" && barumessage.email){
+console.log("masuk neh userdown");
               if(barumessage.email === arrquenol[0] && arrquen.length !== 0){
                     arrquenol.length = 0;
  
@@ -254,12 +252,21 @@ console.log("arquen[0]");
                 console.log("isi dari arrremov neh");
 }};
                             arrquen.splice(arrremov[0], arrremov.length);
+                    if(countq.length != 0){
+                        countq.splice((countq.length - 1), 1);
+                        console.log(countq.length + "splice pertama");
+                         sendcountq(ws);                     
+}
               console.log(arrquen);
                   console.log("habis arrquen displice dengan arrremov");
 
 
 }
-           else {
+  else if(barumessage.email === arrquenol[0] && arrquen.length === 0){
+   arrquenol.length = 0;
+  console.log("masuk userdown  dan arrquenol dikosongkan");
+}
+           else if(barumessage.email !== arrquenol[0] && arrquen.length !== 0){
              for(let k = 0; k < arrquen.length; k++){
                  let tempk = arrquen[k];
                      if(tempk.email === barumessage.email){
@@ -276,16 +283,27 @@ console.log("arquen[0]");
 
 }                    
         arrquen.splice(arrremov[0], arrremov.length);
-        console.log(arrquen);
+   if(countq.length != 0){
+                        countq.splice((countq.length - 1), 1);
+              console.log(countq.length + "splice kedua");
+                         sendcountq(ws);                     
+}
         console.log("abis dilakukan arrremov setelah k");
                  }
                     arrremov.length = 0;
 
 }              
  
-        
+      else if(barumessage.forcedown === "yes"){
+wssx.clients.forEach(function(client) {
+      if (client !== ws && client.readyState === wss.OPEN) {
+        client.send(newmessage);
+}});
+}     
+   
        else if(barumessage.status === "admindown" && barumessage.message === '') {
                    avail.length = 0;
+                   loginnow.length = 0;
       console.log(avail);
      console.log("isi dari avail setelah admindown");
 wssx.clients.forEach(function(client) {
@@ -296,7 +314,7 @@ wssx.clients.forEach(function(client) {
      
            }
          else if(reg.test(barumessage.email)){
-           if(arrquenol.length != 0){
+           if(arrquenol.length !== 0){
              console.log("arrquenol panjang != 0");
            if(arrquenol.includes(barumessage.email)){
                         console.log(arrquenol + "aftercheck");
@@ -334,6 +352,8 @@ else if(arrset[0] < arrquen.length){
  
                 if(arrset.length === 0){
                         arrquen.push(barumessage);
+                        countq.push(barumessage.email);
+                     sendcountq(ws);
                   console.log(arrquen);
              console.log( "gak nemu di list email arquen");
                       }
@@ -342,7 +362,9 @@ else if(arrset[0] < arrquen.length){
 
                     else {
                       arrquen.push(barumessage);
-                       console.log(arrquen + "anggota pertama dari arquen");
+                        countq.push(barumessage.email);
+                       sendcountq(ws);
+   console.log(arrquen[0] + "anggota pertama dari arquen");
 }
                              arrset.length = 0;
                   }
