@@ -1,4 +1,5 @@
 const https = require("https");
+const http = require("http");
 const express = require('express');
 const app = express();
 const fs = require("fs");
@@ -11,6 +12,7 @@ const dbidinsertm = require("./Insertdbidm");
 const dbidcheckcc = require("./DbidcheckCc");
 const dbidinsertcc = require("./InsertdbidCc"); 
 const dbidcheckgived = require("./DbidcheckGived");
+const dbidmdump = require("./Dumpdbidm");
 
 const unamecheckconn = require("./UnameChecking");
 const wss = require("ws");
@@ -43,6 +45,10 @@ app.use('/memberarea', express.static('../my-app/build'));
 app.use(cors());
 
 app.use(bodyParser.json());
+
+app.get("*", function(req, res, next){
+      res.redirect("https://" + req.headers.host + req.path);
+});
 
 app.post('/', function(req, res, next) {
 
@@ -104,12 +110,20 @@ if(req.body.givemedata !== undefined){
       if(req.body.givemedata === "yes"){
          dbidcheckgived.dbidgived().then(function (sendnow){
        res.send(sendnow)
-       console.log(sendnow);
 
 });
     console.log("givemedata telah disend")     
 }
 
+}
+
+if(req.body.givemedataleavemessage !== undefined){
+      if(req.body.givemedataleavemessage === "yes"){
+         dbidmdump.dumpdbidm().then(function (sendnowml){
+       res.send(sendnowml)
+});
+    console.log("givemedataleavemessage telah disend")     
+}
 }
 
 }
@@ -175,6 +189,9 @@ const options = {
     key: fs.readFileSync("server.key"),
     cert: fs.readFileSync("server.cert"),
 };
+
+http.createServer(app).listen(80, function() {
+    });
 
 var server = https.createServer(options, app);
 
