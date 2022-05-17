@@ -1,4 +1,4 @@
-.blkareau {
+.blkareau3 {
   display: block;
   width: 90%;
   height: auto;
@@ -8,7 +8,7 @@
   margin-right: 5%;
 }
 
-.blkareaa {
+.blkareaa3 {
   display: block;
   width: 90%;
   height: auto;
@@ -19,23 +19,23 @@
   margin-bottom: 2.5%;
 }
 
-.btnareau {
+.btnareau3 {
   display: block;
-  background-color: red;
+  background-color:  #ebfe3e;
   border-style:solid;
   border-radius: 1em;
   font-family: serif;
 }
 
-.btnareaa {
+.btnareaa3 {
   display: block;
-  background-color: red;
+  background-color:  #ebfe3e;
   border-style:solid;
   border-radius: 1em;
   font-family: serif;
 }
 
-.txtareau {
+.txtareau3 {
   resize: none;
   display: block;
   font-family: serif; 
@@ -44,7 +44,7 @@
   border-radius: 1em;
 }
 
-.txtareaa {
+.txtareaa3 {
   resize: none;
   display: block;
   width: 250px;
@@ -53,7 +53,7 @@
   font-family: serif;
 }
 
-.txtareau:hover {
+.txtareau3:hover {
    resize: none;
   display: block;
   width: 250px;
@@ -62,19 +62,7 @@
   font-family: serif;
 }
 
-.txtareau:focus {
-   resize: none;
-  display: block;
-  width: 250px;
-  height: 60px;
-  border-radius: 1em;
-  font-family: serif;
-  outline: none;
-  outline-width: 0px;
-}
-
-
-.txtareau:active {
+.txtareau3:focus {
    resize: none;
   display: block;
   width: 250px;
@@ -85,7 +73,19 @@
   outline-width: 0px;
 }
 
-.btnsubmit {
+
+.txtareau3:active {
+   resize: none;
+  display: block;
+  width: 250px;
+  height: 60px;
+  border-radius: 1em;
+  font-family: serif;
+  outline: none;
+  outline-width: 0px;
+}
+
+.btnsubmit3 {
   display: block;
   border-radius: 1em;
   margin-top: 5%;
@@ -94,7 +94,7 @@
 }
 
 
-.btnsubmit:hover {
+.btnsubmit3:hover {
   display: block;
   border-radius: 1em;
   margin-top: 5%;
@@ -102,7 +102,7 @@
   font-family: serif;
 }
 
-.btnsubmit:focus {
+.btnsubmit3:focus {
   display: block;
   border-radius: 1em;
   margin-top: 5%;
@@ -112,7 +112,7 @@
   outline-width: 0px;
 }
 
-.btnsubmit:active {
+.btnsubmit3:active {
   display: block;
   border-radius: 1em;
   margin-top: 5%;

@@ -1,0 +1,31 @@
+.divleaveblbtn {
+   display: block;
+   width: 100%
+}
+
+.divlivechatbtn {
+   display: block;
+   width: 100%;
+}
+
+.leavemsgblbtn {
+  width: 100%;
+  display: block;
+  padding-left:0px;
+  padding-top: 0px;
+  font-family: serif;
+  background-color: #f5fc79;
+  font-size: x-large;
+  font-family: serif;  
+}
+
+.livechatbtn {
+ width: 100%;
+  display: block;
+  padding-left:0px;
+  padding-top: 0px;
+  font-family: helvetica;
+  background-color: #f5fc79;
+  font-size: x-large;
+  font-family: serif;  
+}

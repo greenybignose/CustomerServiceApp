@@ -38,20 +38,20 @@ return(
 <>
 <div className={props.className}>
 
-<div className="blkareaa">
-  <button className="btnareaa">Admin</button>
-  <textarea type="textarea" readOnly className="txtareaa" ref={adminchat}>
+<div className="blkareaa3">
+  <button className="btnareaa3">Admin</button>
+  <textarea type="textarea" readOnly className="txtareaa3" ref={adminchat}>
    Please leave your message below, as our admin not available at this moment. 
    We will reply as soon as possible.
     </textarea>
 </div>
-<div className="blkareau">
+<div className="blkareau3">
   <form action="" onSubmit={(e) => handleSubmit(e)}>
-  <button className="btnareau">{props.email}</button>
-  <textarea type="textarea" className="txtareau"   
+  <button className="btnareau3">{props.email}</button>
+  <textarea type="textarea" className="txtareau3"   
    ref={textchat} >
     </textarea>
-   <input type="submit" className="btnsubmit" value="send"/>
+   <input type="submit" className="btnsubmit3" value="send"/>
    </form> 
 </div>
 </div> 

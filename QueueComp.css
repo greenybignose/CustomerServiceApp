@@ -1,4 +1,4 @@
-.tampil {
+.showup2 {
   visibility: visible;
   position: fixed;
   bottom: 0px;
@@ -6,13 +6,14 @@
   display: block;
   width: 30%;
   height: auto;
-  background-color: blue;
+  background-color: #68cdfc;
   border-style: solid;
   boder-color: blue;
   border-radius: 1.2em;
+  padding-top: 3%;
   }
 
-.blkareau {
+.blkareau2 {
   display: block;
   width: 90%;
   height: auto;
@@ -22,7 +23,7 @@
   margin-right: 5%;
 }
 
-.blkareaa {
+.blkareaa2 {
   display: block;
   width: 90%;
   height: auto;
@@ -33,23 +34,23 @@
   margin-bottom: 2.5%;
 }
 
-.btnareau {
+.btnareau2 {
   display: block;
-  background-color: red;
+  background-color: #ebfe3e;
   border-style:solid;
   border-radius: 1em;
   font-family: serif;
 }
 
-.btnareaa {
+.btnareaa2 {
   display: block;
-  background-color: red;
+  background-color: #ebfe3e;
   border-style:solid;
   border-radius: 1em;
   font-family: serif;
 }
 
-.txtareau {
+.txtareau2 {
   resize: none;
   display: block;
   font-family: serif; 
@@ -58,7 +59,39 @@
   border-radius: 1em;
 }
 
-.txtareaa {
+txtareau2:hover {
+    resize: none;
+  display: block;
+  font-family: serif; 
+  width: 250px;
+  height: 60px;
+  border-radius: 1em;
+}
+
+.txtareau2:focus {
+  resize: none;
+  display: block;
+  font-family: serif; 
+  width: 250px;
+  height: 60px;
+  border-radius: 1em;
+  outline: none;
+  outline-width: 0px;
+}
+
+
+.txtareau2:active {
+  resize: none;
+  display: block;
+  font-family: serif; 
+  width: 250px;
+  height: 60px;
+  border-radius: 1em;
+  outline: none;
+  outline-width: 0px;
+}
+
+.txtareaa2 {
   resize: none;
   display: block;
   width: 250px;
@@ -67,16 +100,77 @@
   font-family: serif;
 }
 
-.btnsubmit {
+txtareaa2:hover {
+   resize: none;
   display: block;
+  width: 250px;
+  height: 60px;
   border-radius: 1em;
-  margin-top: 5%;
+  font-family: serif;
+}
+
+.txtareaa2:focus {
+   resize: none;
+  display: block;
+  width: 250px;
+  height: 60px;
+  border-radius: 1em;
+  font-family: serif;
+  outline: none;
+  outline-width: 0px;
+}
+
+
+.txtareaa2:active {
+   resize: none;
+  display: block;
+  width: 250px;
+  height: 60px;
+  border-radius: 1em;
+  font-family: serif;
+  outline: none;
+  outline-width: 0px;
+}
+
+.queuepage2 {
+  font-weight: bold;
+  font-family: serif;
+}
+
+.queueblock2 {
+   display: inline-block;
+   width: 40%;
+   margin-top: 5%;
+}
+
+.nqbuttonblock2 {
+    display: inline-block;
+    width: 30%;
+    margin-top: 5%;
+}
+
+.btnsubmitblock2 {
+   display: inline-block;
+   width: 30%;
+   margin-top: 5%;
+}
+
+.nqbutton2 {
+    width: auto;
+    border-radius: 1em;
   font-style: italic;
   font-family: serif;
 }
 
-.divstraight {
-  display: inline-block;
+.btnsubmit2 {
+  width: auto;
+  border-radius: 1em;
+  font-style: italic;
+  font-family: serif;
+}
+
+.divstraight2 {
+  display: block;
   padding-left: 10px;
   padding-top: 5px;
   }

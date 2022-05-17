@@ -1,0 +1,32 @@
+.messageblock {
+  width: auto;
+  height: auto;
+  display: block;
+  left: 0px;
+  top: 0px;
+  border-style: solid;
+  border-radius: 1em;
+  border-color: #f593eb;
+  background-color: #f8f3f9;
+}
+
+.emailbtn {
+  width: 100%;
+  display: block;
+  padding-left:0px;
+  padding-top: 0px;
+  font-family: serif;
+  font-size: large;
+  border-radius: 1em;
+  background-color: #b5fc38;
+}
+
+.emailmsg {
+ width: 100%;
+  display: block;
+  padding-left:0px;
+  padding-top: 0px;
+  font-family: helvetica;
+  border-radius: 1em;
+  background-color: #b4b1b6;
+}

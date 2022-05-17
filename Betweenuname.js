@@ -14,7 +14,7 @@ const [email, setEmail] = useState();
 const [uchat, setUchat] = useState("ngumpet");
 const [uchatna, setUchatna] = useState("ngumpet");
 const [antrian, setAntrian] = useState();
-const [textnya, setTextnya] = useState({text: "Please kindly leave your email address below in case" +  
+const [textnya, setTextnya] = useState({text: "Please kindly leave your email address below in case " +  
  "our communication break or our customer service not available at this moment", code: 1});
 useMemo(() => fetchdata(), [username]);
 

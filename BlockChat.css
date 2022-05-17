@@ -19,7 +19,7 @@
   border-style: solid;
   border-radius: 1em;
   border-color: #fad67d;
-  background-color: #fad67d;
+  background-color: #f5f9f5;
 
 }
 .adminblock {
@@ -31,7 +31,7 @@
   border-style: solid;
   border-radius: 1em;
   border-color: #f593eb;
-  background-color: #f593eb;
+  background-color: #f5f9f5;
 }
 
 .elinu {
@@ -58,7 +58,7 @@
   border-style: solid;
   border-radius: 1em;
   border-color: #f55858;
-  background-color: #f55858;
+  background-color: #98f79c;
   font-family: serif arial;
   font-weight: bold;
   font-size: 1.25em;
@@ -71,7 +71,7 @@
   padding-top: 0px;
   border-radius: 1em;
   border-color: #869686;
-  background-color: #869686;
+  background-color: #f5ddaa;
   font-family: helvetica arial;
   font-weight: bold;
   font-size: 1.25em;

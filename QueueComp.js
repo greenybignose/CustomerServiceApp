@@ -51,7 +51,7 @@ return "kampret";
 
 function onmessagequeuehelp(message){
              let newqueuepage = queuepage;
-                newqueuepage = message.jumlahqueue;
+                newqueuepage = "Queue: " + message.jumlahqueue;
               setQueuepage(newqueuepage);
     }
 
@@ -157,21 +157,27 @@ function handleClicknq(event){
 return(
 
 <>
-<div className="tampil">
-<div className="blkareau">
-{ email &&  <button className="btnareau">{email}</button> }
-  <textarea type="textarea" readOnly className="txtareau" rows="10" cols="50" ref={userchat}>
+<div className="showup2">
+<div className="blkareau2">
+{ email &&  <button className="btnareau2">{email}</button> }
+  <textarea type="textarea" readOnly className="txtareau2" rows="10" cols="50" ref={userchat}>
     </textarea>
 </div>
-<div className="blkareaa">
-<button className="btnareaa">Admin</button>
-  <textarea type="textarea" className="txtareaa" rows="10" cols="50"  
+<div className="blkareaa2">
+<button className="btnareaa2">Admin</button>
+  <textarea type="textarea" className="txtareaa2" rows="10" cols="50"  
    ref={textchat} >
     </textarea>
-      <div classNanem="divstraight">
-     <p>{queuepage}</p>
-       <button onClick={(e) => handleClicknq(e)}>Next Queue</button>  
-     <button className="btnsubmit" onClick={(e) => handleClicksend(e)}>Send</button>
+      <div classNane="divstraight2">
+<div className="queueblock2">
+     <p className="queuepage2">{queuepage}</p>
+</div>
+<div className="nqbuttonblock2">
+       <button className="nqbutton2" onClick={(e) => handleClicknq(e)}>Next Queue</button>  
+</div>
+<div className="btnsubmitblock2">
+     <button className="btnsubmit2" onClick={(e) => handleClicksend(e)}>Send</button>
+</div>
 </div>
 </div> 
 </div>
